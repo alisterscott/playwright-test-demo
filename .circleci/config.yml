@@ -35,3 +35,7 @@ jobs:
 
       # run tests!
       - run: npm test
+      
+      # store screenshots
+      - store_artifacts:
+          path: /test-results

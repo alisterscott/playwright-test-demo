@@ -2,3 +2,4 @@ node_modules/
 jest-stare/
 .idea/
 screenshots/
+test-results/
