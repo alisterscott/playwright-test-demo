@@ -1,8 +1,8 @@
-# Playwright Jest Demo
+# Playwright Test Demo
 
-A demo project that demonstrates how to use Playwright with Jest
+A demo project that demonstrates how to use Playwright Test Runner
 
-Build status: [![CircleCI](https://circleci.com/gh/alisterscott/playwright-jest-demo/tree/master.svg?style=svg)](https://circleci.com/gh/alisterscott/playwright-jest-demo/tree/master)
+Build status: [![CircleCI](https://circleci.com/gh/alisterscott/playwright-test-demo/tree/master.svg?style=svg)](https://circleci.com/gh/alisterscott/playwright-test-demo/tree/master)
 
 
 ## Prerequisites

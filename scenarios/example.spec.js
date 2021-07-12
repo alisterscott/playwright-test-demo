@@ -1,19 +1,13 @@
-/* eslint-env jest */
 const nav = require('../lib/actions/nav')
-const pages = require('../lib/pages')
-const jestTimeoutMS = require('config').get('jestTimeoutMS')
+const { test, expect } = require('@playwright/test')
 
-jest.retryTimes(1)
+test('can wait for an element to appear', async ({ page }) => {
+  await nav.visitHomePage(page)
+  await page.waitForSelector('#elementappearschild', { visible: true, timeout: 5000 })
+})
 
-test('can wait for an element to appear', async () => {
-  global.page = await pages.spawnPage()
-  await nav.visitHomePage(global.page)
-  await global.page.waitForSelector('#elementappearschild', { visible: true, timeout: 5000 })
-}, jestTimeoutMS)
-
-test('can use an element that appears after on page load', async () => {
-  global.page = await pages.spawnPage()
-  await nav.visitHomePage(global.page)
-  const text = await global.page.textContent('#loadedchild')
+test('can use an element that appears after on page load', async ({ page }) => {
+  await nav.visitHomePage(page)
+  const text = await page.textContent('#loadedchild')
   expect(text).toBe('Loaded!')
-}, jestTimeoutMS)
+})

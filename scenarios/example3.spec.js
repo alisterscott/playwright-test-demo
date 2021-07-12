@@ -1,16 +1,12 @@
 /* eslint-env jest */
 const nav = require('../lib/actions/nav')
-const pages = require('../lib/pages')
-const jestTimeoutMS = require('config').get('jestTimeoutMS')
+const { test, expect } = require('@playwright/test')
 
-jest.retryTimes(1)
-
-test('can check for errors when there should be none', async () => {
-  global.page = await pages.spawnPage()
+test('can check for errors when there should be none', async ({ page }) => {
   let errors = ''
-  global.page.on('pageerror', pageerr => {
+  page.on('pageerror', pageerr => {
     errors = errors + pageerr
   })
-  await nav.visitHomePage(global.page)
+  await nav.visitHomePage(page)
   expect(errors).toBe('')
-}, jestTimeoutMS)
+})
