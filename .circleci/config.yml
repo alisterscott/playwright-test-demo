@@ -38,4 +38,4 @@ jobs:
       
       # store screenshots
       - store_artifacts:
-          path: /test-results
+          path: ~/repo/test-results
